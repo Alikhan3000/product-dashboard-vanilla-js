@@ -27,10 +27,15 @@
 .productElements p {
     font-size: medium;
     color: black;
-    font-weight: bold;
+    font-style: italic;
 
 }
 
 h1{
     text-align: center;
+}
+
+body{
+
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }

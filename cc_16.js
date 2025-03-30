@@ -18,8 +18,13 @@ function fetchProductsThen(){                                                   
     console.error('There was an error with the fetch operation', error);        //used .catch to log an error message if there any errors from previous operations
 })};
 
-fetchProductsThen()
 
+
+//Task 5: Reusable Error Handler
+
+function handleError(error){                                //created a function that logs error message
+    console.error("An error occurred:", error.message);
+}
 
 // Task 3: Fetch Products with async/await
 
@@ -54,6 +59,7 @@ function displayProducts(products){                             //created a func
 
     const name = product.fields.name;                       //I took the product object properties and assigned them as variables to be used in this function
     const price = (product.fields.price).toFixed(2);
+    //I think that's a very expensive furniture shop; rounded prices to 2 decimal places
     const image = product.fields.image[0].url;
 
         const div = document.createElement('div');
@@ -68,8 +74,8 @@ function displayProducts(products){                             //created a func
 
 } catch(error){                                             //used catch to handle any accuring errors; the HTML tructure is changed as well when there is an error                          
     id.innerHTML = 
-    `<p style = "color:red;>There was an error when loading products: ${error}</p>`;
+    `<p style = "color:red;">There was an error when loading products: ${error}</p>`;
 
 }}
 
-fetchProductsAsync();
+
