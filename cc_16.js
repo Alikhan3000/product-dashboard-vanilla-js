@@ -79,3 +79,7 @@ function displayProducts(products){                             //created a func
 }}
 
 
+// Task 6: Call Your Fetch Functions
+
+fetchProductsThen();
+fetchProductsAsync();
