@@ -19,3 +19,27 @@ function fetchProductsThen(){                                                   
 })};
 
 fetchProductsThen()
+
+
+// Task 3: Fetch Products with async/await
+
+async function fetchProductsAsync() {               //declared an async function 
+    try {
+        const response = await fetch('https://www.course-api.com/javascript-store-products');   //fetched the data from external API 
+        if (!response.ok) {
+            throw new Error('Product is not available');    //created error handling using throw new Error (further code execution should stop if there is an error)
+        }
+
+        const products = await response.json();           //parsed data to jason using await for the async function 
+
+        displayProducts(products);                  //async function calls this function to render products on the page
+
+}catch(error){                                       //used catch to handle errors if there any from previous operations
+    
+    handleError(error)                          
+}}
+
+//created displayProducts function to be used in task #4 
+function displayProducts(products){             
+    
+};
