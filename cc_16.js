@@ -40,6 +40,36 @@ async function fetchProductsAsync() {               //declared an async function
 }}
 
 //created displayProducts function to be used in task #4 
-function displayProducts(products){             
+
+// Task 4: Display the Products
+
+function displayProducts(products){                             //created a function that loops through the first 5 products       
     
-};
+    const id = document.getElementById("product-container");    
+
+    id.innerHTML = "";                                          //set HTML structure to be empty 
+
+    try{
+    products.slice(0,5).forEach((product) => {              //selected first 5 products using slice
+
+    const name = product.fields.name;                       //I took the product object properties and assigned them as variables to be used in this function
+    const price = (product.fields.price).toFixed(2);
+    const image = product.fields.image[0].url;
+
+        const div = document.createElement('div');
+        div.classList.add("productElements");                   //assigned class id to be styled in style.css          
+        div.innerHTML = `
+        <img src ="${image}" alt = "${name}"/>              
+        <h3>${name}</h3>
+        <p>$${price}</p>`;
+
+        id.appendChild(div)                                 //appnded the elements
+    });
+
+} catch(error){                                             //used catch to handle any accuring errors; the HTML tructure is changed as well when there is an error                          
+    id.innerHTML = 
+    `<p style = "color:red;>There was an error when loading products: ${error}</p>`;
+
+}}
+
+fetchProductsAsync();
